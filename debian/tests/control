@@ -1,0 +1,8 @@
+Tests: unittests
+Depends:
+ python3-all,
+ python3-docutils,
+ python3-pygments,
+ python3-pytest,
+ python3-sphinx,
+ python3-sphinx-prompt,

@@ -1,4 +1,19 @@
 #!/usr/bin/make -f
+# -*- makefile -*-
+
+#export DH_VERBOSE=1
+
+include /usr/share/dpkg/pkg-info.mk
+
+export PYBUILD_NAME=sphinx_prompt
 
 %:
-	dh $@
+	dh $@ --buildsystem=pybuild
+
+override_dh_auto_build:
+	# Hack around not updated upstream version in pyproject.toml file.
+	sed -i '/^version =/c\version = "$(DEB_VERSION_UPSTREAM)"' pyproject.toml
+	dh_auto_build
+
+override_dh_auto_test:
+	dh_auto_test -- --system=custom --test-args="PYTHONPATH={build_dir} {interpreter} -m pytest tests"
