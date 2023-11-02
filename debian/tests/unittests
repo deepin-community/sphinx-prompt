@@ -1,0 +1,24 @@
+#!/bin/bash
+SOURCE_DIR="$PWD"
+
+set -e -u
+
+cp -a sphinx_prompt sphinx-prompt tests "${AUTOPKGTEST_TMP}"
+
+for py3vers in $(py3versions -s); do
+    echo
+    echo "***************************"
+    echo "*** Testing with ${py3vers}"
+    echo "***************************"
+    echo
+    cd ${AUTOPKGTEST_TMP} && \
+        echo -e "Content of current working folder:\n" && \
+        ls -la && \
+        echo -e "Running tests...\n" && \
+        TMPDIR="$AUTOPKGTEST_TMP" ${py3vers} -m pytest "$SOURCE_DIR" && \
+        rm -rf .pytest_cache || exit 1
+done
+
+echo
+
+exit 0

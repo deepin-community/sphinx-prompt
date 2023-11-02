@@ -1,5 +1,69 @@
-template-repository (1.0-1) unstable; urgency=medium
+sphinx-prompt (1.6.0-1) unstable; urgency=medium
 
-  * Initial release
+  * Team upload.
+  * New upstream version 1.6.0
+  * d/*: Running wrap-and-sort -ast
+    No modifications, only reorder content.
+  * Drop Debian patch queue
+    Not needed as all patches are included within the new upstream source.
+  * d/control: Adjust B-D, adding BuildProfileSpecs
+  * d/rules: Drop --with option in default target
+  * d/rules: Use customized dh_auto_test call to use pytest
+  * d/rules: Tune upstream version number in pyproject.toml
+  * d/copyright: Update year data of contributions
+  * autopkgtest: Tune unittests script a bit
 
- -- Tsic404 <liuheng@deepin.org>  Sat, 28 Jan 2023 13:46:49 +0800
+ -- Carsten Schoenert <c.schoenert@t-online.de>  Sun, 19 Feb 2023 11:01:23 +0100
+
+sphinx-prompt (1.5.0-3) unstable; urgency=medium
+
+  * Team upload.
+
+  [ Christian Kastner ]
+  * Bump Standards-Version to 4.6.2 (no changes needed)
+
+  [ Carsten Schoenert ]
+  * Rebuild patch queue from patch-queue branch
+    Added patch:
+    Fix-for-new-pygment-version.patch
+    (Closes: #1028622)
+
+ -- Carsten Schoenert <c.schoenert@t-online.de>  Wed, 18 Jan 2023 20:06:31 +0100
+
+sphinx-prompt (1.5.0-2) unstable; urgency=medium
+
+  * Team upload.
+  * Backport upstream patch to make the tests pass with docutils 0.19.
+
+ -- Dmitry Shachnev <mitya57@debian.org>  Sat, 17 Dec 2022 22:03:10 +0300
+
+sphinx-prompt (1.5.0-1) unstable; urgency=medium
+
+  * New upstream release.
+    - Require python3-sphinx
+    - Require python3-pytest
+  * Add autopkgtest
+  * Update d/watch
+  * Bump Standards-Version to 4.6.0 (no changes needed)
+  * Bump debhelper compatibility to 13
+  * Update d/copyright
+
+ -- Christian Kastner <ckk@debian.org>  Thu, 17 Feb 2022 20:03:02 +0100
+
+sphinx-prompt (1.3.0-3) unstable; urgency=medium
+
+  * Source-only upload after going through NEW queue (no changes)
+
+ -- Christian Kastner <ckk@debian.org>  Thu, 04 Feb 2021 22:48:04 +0100
+
+sphinx-prompt (1.3.0-2) unstable; urgency=medium
+
+  * Add missing license to debian/copyright
+
+ -- Christian Kastner <ckk@debian.org>  Wed, 13 Jan 2021 19:09:42 +0100
+
+sphinx-prompt (1.3.0-1) unstable; urgency=medium
+
+  * Initial release. Closes: #977651
+
+ -- Christian Kastner <ckk@debian.org>  Sun, 09 Aug 2020 20:13:35 +0200
